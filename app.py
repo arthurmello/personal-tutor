@@ -28,9 +28,7 @@ with st.sidebar:
         st.session_state.current_expected_answer=answer
         st.session_state.messages.append({"role": "assistant", "content": question, "avatar":assistant_avatar})
         st.session_state.clicked = True
-        print("First line",st.session_state.question_index)
         st.session_state.question_index+=1
-        print("Second line",st.session_state.question_index)
     st.button('Validate', on_click=validate)
 
 ### Chat ###
@@ -70,17 +68,12 @@ if prompt := st.chat_input("Write here..."):
             expected_answer=st.session_state.current_expected_answer,
             user_answer=st.session_state.current_user_answer
             )
-        print(evaluation)
         # Ask next question
         response=random.choice(st.session_state.questions)
-        print(response)
-        print("Third line",st.session_state.question_index)
         question, answer = get_question_and_answer(response,st.session_state.question_index)
         st.session_state.current_question=question
         st.session_state.current_expected_answer=answer
         st.session_state.question_index=st.session_state.question_index+1
-        print("Fourth line",st.session_state.question_index)
-        #st.session_state.messages
         st.markdown(evaluation)
         st.markdown(question)
 
