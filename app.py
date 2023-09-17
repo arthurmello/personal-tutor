@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_chat import message
 from functions import convert_pdf_to_txt_file, create_chunks, generate_questions, generate_evaluation, get_question_and_answer
 import random
 
